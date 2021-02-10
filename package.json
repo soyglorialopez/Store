@@ -1,0 +1,23 @@
+{
+  "name": "backend-supermarket",
+  "version": "1.0.0",
+  "description": "Backend de un supermercado",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "node",
+    "express"
+  ],
+  "author": "@soyglorialopez",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "bcrypt": "^5.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1"
+  }
+}
