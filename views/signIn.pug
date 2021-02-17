@@ -1,0 +1,24 @@
+extends layout
+block content
+  .container.is-max-desktop.mt-5
+    div(style='text-align: center;')
+      p.subtitle.is-3  Sign In
+    form(action='' method='post')
+      .field
+        label.label Email
+        p.control.has-icons-left
+          input.input(type='email' placeholder='Email input' value='hello@')
+          span.icon.is-small.is-left
+            i.fas.fa-envelope
+      .field
+        label.label Password
+        p.control.has-icons-left
+          input.input(type='password' placeholder='Password')
+          span.icon.is-small.is-left
+            i.fas.fa-lock
+      .control(style='text-align: center; ')
+        button.button.is-info.is-rounded(style='width: 200px;') Submit
+        div
+          p
+            | No account? 
+            a(href='') Sing Up

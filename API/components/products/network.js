@@ -26,8 +26,9 @@ const controller = require('./controller');
   });
     
   //traemos productos especificos
-  router.get('/:product', async(req, res) => {
+  router.get('/product', async(req, res) => {
       let result 
+      console.log(res.query)
       try {
       result = await controller.query(req.params.product)
         response(res,'', result, 200 )

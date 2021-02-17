@@ -1,0 +1,44 @@
+extends layout
+
+block content
+   .jumbotron.jumbotron-fluid
+      .container
+        h1.display-4 The Best Shop
+        p.lead With the best products
+ 
+   .container(style=&quot;flex: 1; padding: 50px 0;&quot;)  
+     h1.title.is-3 Sales
+     .columns.is-multiline
+        each product in sales
+          .column.is-one-quarter
+            .card
+             .card-image
+               figure.image(style=&quot;height: 190px&quot;)
+               img(src=product.image style=&quot;height: 100%; object-fit: cover&quot;)
+             .card-content
+                h1.title= product.name
+               .button.is-fullwidth.is-info
+                 span.icon
+                   i.fas.fa-shopping-cart
+                 span Add Cart
+                   strong= &grave;${product.price} USD&grave
+
+    .container(style=&quot;flex: 1; padding: 50px 0;&quot;)  
+      h1.title.is-3 New Products
+      .columns.is-multiline
+        each product in newProducts
+          .column.is-one-quarter
+            .card
+             .card-image
+               figure.image(style=&quot;height: 190px&quot;)
+               img(src=product.image style=&quot;height: 100%; object-fit: cover&quot;)
+             .card-content
+                h1.title= product.name
+               .button.is-fullwidth.is-info
+                 span.icon
+                   i.fas.fa-shopping-cart
+                 span Add Cart
+                   strong= &grave;${product.price} USD&grave
+
+
+

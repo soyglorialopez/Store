@@ -1,0 +1,18 @@
+extends layout
+block content
+  .container.is-max-desktop.mt-5
+    div(style='text-align: center;')
+      p.subtitle.is-3  Products added to cart
+    hr
+    each product in cart
+     .alert.alert-dismissible.fade.show(style=' text-align: center; ' role='alert')
+      .row.is-flex.justify-content-center
+        .col-3
+          img(src= product.img style='width: 100px;' alt='')
+        .col-3
+          p= product.name
+          p= product.price
+        .col-2
+          button.close(type='button' data-dismiss='alert' aria-label='Close')
+            span(aria-hidden='true') &times;
+     hr

@@ -1,0 +1,18 @@
+nav.navbar.is-info
+  .container
+    .navbar-brand
+      a.navbar-item
+        strong SHOP
+      .navbar-item
+        button.button.is-primary.is-light View all products
+    .navbar-menu
+      .navbar-end
+          if user
+            .nav-item  
+              p #{user}
+          else    
+            a.nav-item(href='') Sign in
+        .navbar-item
+          a(href='')
+            span.icon.is-large
+              i.fas.fa-shopping-cart.fa-2x
