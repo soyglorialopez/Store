@@ -1,3 +1,4 @@
+'use strict'
 const express = require('express');
 const app = express();
 const config = require('../config.js');
@@ -9,6 +10,7 @@ const shoppingCart = require('./components/cart/network.js');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.set('view engine', 'pug');
 
 app.use('/user', user);
 app.use('/auth', auth);
@@ -21,5 +23,5 @@ app.use('/', (req, res) => {
 });
 
 app.listen(config.api.port, () => {
-    console.log(`Api escuchando en http://${config.api.host}/${config.api.port}`)
+    console.log(`Api escuchando en http://${config.api.host}/${config.api.port}`);
 })

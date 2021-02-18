@@ -1,17 +1,17 @@
+'use strict'
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
 const controller = require('./controller.js');
-const response = require('../../../response');
+const boom = require('@hapi/boom');
 
 
-router.post('/login',  async (req, res) => {
+
+router.post('/signIn',  async (req, res) => {
     let result 
     try {
-     result = await controller.login(req.body.email, req.body.password)
-      response(res,'', result, 200 )
+     result = await controller.signIn(req.body.email, req.body.password)
     } catch (error) {
-      response(res, 'Error Internal', '', 500)
-      console.error(error)
+      boom.badData(error)
     }
     })
 

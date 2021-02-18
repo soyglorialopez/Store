@@ -1,5 +1,8 @@
+'use strict'
+
 const db = require('../../../store/remote-mysql');
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
+
  function controller(){
     return {
         list : (table) => db.list(table),

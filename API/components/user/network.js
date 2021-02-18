@@ -1,25 +1,34 @@
+'use strict'
 const express = require('express');
-const router = express.Router()
+const router = express.Router();
+const boom = require('@hapi/boom');
+const validation = require('../../../utils/middleware/validationSchema');
 const controller = require('./controller.js');
-const response = require('../../../response.js');
 
-
-router.get('/' , async (req, res)=> {
-   let data = 
-   await controller.list('users');
-   response(res, 'lista de usuarios', data, 200)
-    
+router.get('signIn', async (req, res) => {
+  try {
+    res.render('singIn.pug');
+  } catch (error) {
+    boom.badImplementation(error);
+  };
 });
 
-router.post('/create', async (req, res) => {
-let result 
-try {
- result = await controller.add(req.body)
-  response(res,'your user was create', result, 200 )
-} catch (error) {
-  response(res, 'Error Internal', '', 500)
-  console.error(error)
-}
+router.get('/signUp', async (req, res) => {
+  try {
+    res.render('signUp');
+  } catch (error) {
+    boom.badImplementation('Internal Error')
+  };
+});
+
+router.post('/signUp', validation(), async (req, res) => {
+  let result
+  try {
+    result = await controller.add(req.body);
+    res.redirect('http://localhost:8000/signIn')
+  } catch (error) {
+    boom.badRequest(error);
+  };
 });
 
 
