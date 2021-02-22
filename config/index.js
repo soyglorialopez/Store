@@ -1,6 +1,7 @@
+'use strict'
 require('dotenv').config();
 
-const api = {
+const site = {
     port: process.env.PAGE_PORT,
     host: process.env.PAGE_HOST 
 }
@@ -25,7 +26,7 @@ const jwt = {
 
 
 module.exports = {
-    api,
+    site,
     Pg,
     db,
     jwt

@@ -1,7 +1,7 @@
 'use strict'
 
 const boom = require('@hapi/boom');
-const debug = require('debug')('app/HandlerError');
+const debug = require('debug')('app:HandlerError');
 
 function errorLog (err, res, req, next) {
     debug('[ERROR], err');

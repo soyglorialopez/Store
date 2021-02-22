@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const boom = require('@hapi/boom');
-const validation = require('../../../utils/middleware/validationSchema');
+const validation = require('../../utils/middleware/validationSchema');
 const controller = require('./controller.js');
 
 router.get('signIn', async (req, res) => {
