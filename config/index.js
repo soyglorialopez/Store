@@ -2,15 +2,15 @@ require('dotenv').config();
 
 const api = {
     port: process.env.PAGE_PORT,
-    host: process.env.PAGE_HOST
+    host: process.env.PAGE_HOST 
 }
 
-const mysql = {
+const Pg = {
     user: process.env.DB_USER, 
     database: process.env.DATABASE,  
     password: process.env.DB_PASSWORD, 
     host: process.env.DB_HOST,
-    Port: process.env.DB_PORT
+    port: process.env.DB_PORT
 }
 
 const db = {
@@ -26,7 +26,7 @@ const jwt = {
 
 module.exports = {
     api,
-    mysql,
+    Pg,
     db,
     jwt
 
