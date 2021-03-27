@@ -1,16 +1,11 @@
 'use strict'
-const db = require('../../../store/remote-mysql');
+const services = require("../../services/product");
+const productServices = new services();
 
-
-async function home() {
-   let query = {tag: 'offers'}
-    let offers = await db.last(product,{tag: 'offers'} )
-    let newProducts = await db.last({tag: 'news'})
-
+module.exports =  {
+        sale: async () => await productServices.getProducts({ product: ['sale'] }),
+        newProducts: async () =>  await productServices.getLastProducts()
 }
 
 
 
-module.exports = {
-    home
-}

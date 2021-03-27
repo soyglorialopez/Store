@@ -1,10 +1,8 @@
 extends layout
 
 block content
-    .container.main-content
+     .section.is-medium(style='height: 638px;')
         article.message.is-danger
             .message-body
                 h1.title.has-text-danger= message
-                h2.subtitle.has-text-danger= statusCode
-                if stack
-                    pre.content.is-small #{stack}
+                h2.subtitle.has-text-danger= statusCode           

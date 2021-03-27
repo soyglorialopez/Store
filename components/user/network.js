@@ -2,32 +2,33 @@
 const express = require('express');
 const router = express.Router();
 const boom = require('@hapi/boom');
-const validation = require('../../utils/middleware/validationSchema');
-const controller = require('./controller.js');
+const userValidation = require('../../utils/middleware/validationSchema');
+const service = require('../../services/user');
+const userService = new service();
 
-router.get('signIn', async (req, res) => {
+router.get('/signIn', async (req, res, next) => {
   try {
-    res.render('singIn.pug');
+    res.render('signIn');
   } catch (error) {
-    boom.badImplementation(error);
+    next(boom.badImplementation(error));
   };
 });
 
-router.get('/signUp', async (req, res) => {
+router.get('/signUp', async (req, res, next) => {
   try {
     res.render('signUp');
   } catch (error) {
-    boom.badImplementation('Internal Error')
+    next(boom.badImplementation('Internal Error'));
   };
 });
 
-router.post('/signUp', validation(), async (req, res) => {
+router.post('/signUp', userValidation(), async (req, res, next) => {
   let result
   try {
-    result = await controller.add(req.body);
-    res.redirect('http://localhost:8000/signIn')
+    result = await userService.insert(req.body);
+    res.redirect('http://localhost:8000/user/signIn')
   } catch (error) {
-    boom.badRequest(error);
+    next(boom.badRequest(error));
   };
 });
 

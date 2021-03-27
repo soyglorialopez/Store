@@ -1,18 +1,17 @@
 'use strict'
 const express = require('express');
 const router = express.Router();
-// const debug = require('debug')('route/home');
 const boom = require('@hapi/boom');
 const controller = require('./controller');
-// const middleware = require('./middleware');
 
-router.get('/', async (req, res) => {
-  let result
+router.get('/', async (req, res, next) => {
   try {
-    result = await controller.home()
-    res.render("home")
+    let sales = await controller.sale();
+    let newProducts = await controller.sale();
+
+    res.render("home", {sales: sales.rows, newProducts: newProducts.rows})
   } catch (error) {
-    boom.badImplementation('Internal Error')
+    next(boom.badImplementation(error))
   };
 });
 

@@ -1,6 +1,6 @@
 extends layout
 block content
-  .container.is-max-desktop.mt-5
+  .section.is-medium(style='height: 638px;')
     div(style='text-align: center;')
       p.subtitle.is-3  Sign In
     form(action='' method='post')
@@ -16,7 +16,7 @@ block content
           input.input(type='password' placeholder='Password')
           span.icon.is-small.is-left
             i.fas.fa-lock
-      .control(style='text-align: center; ')
+      .control.mt-5(style='text-align: center;')
         button.button.is-info.is-rounded(style='width: 200px;') Submit
         div
           p

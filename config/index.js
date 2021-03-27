@@ -2,7 +2,8 @@
 require('dotenv').config();
 
 const site = {
-    port: process.env.PAGE_PORT,
+    dev: process.env.NODE_ENV !== 'production',
+    port: process.env.PAGE_PORT ,
     host: process.env.PAGE_HOST 
 }
 
@@ -14,10 +15,6 @@ const Pg = {
     port: process.env.DB_PORT
 }
 
-const db = {
-    port: process.env.PORT,
-    host: process.env.HOST
-}
 
 const jwt = {
     key : process.env.AUTH_SECRET_KEY
@@ -28,7 +25,6 @@ const jwt = {
 module.exports = {
     site,
     Pg,
-    db,
     jwt
 
 }

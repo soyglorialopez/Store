@@ -10,9 +10,14 @@ nav.navbar.is-info
          if user
             .navbar-item  
               p #{user}
-         else   
-           a.navbar-item(href='') Sign in
-         .navbar-item
+         else 
+          .navbar-item
+            .buttons
+              a.button.is-primary
+                strong 
+                  Sign up
+               a.button.is-light Log in
+        a.navbar-item
           a(href='')
             span.icon.is-large
               i.fas.fa-shopping-cart.fa-2x

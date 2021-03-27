@@ -3,7 +3,7 @@
 const Joi = require('joi');
 const boom = require('@hapi/boom');
 
-const schema = Joi.object({
+const userSchema = Joi.object({
     name: Joi.string()
         .min(3)
         .max(10)
@@ -17,14 +17,23 @@ const schema = Joi.object({
         .max(12)
         .required()
 });
- function userValidation(req, res, next) {
-    try {
-    schema.validate(req.body)
-    } catch (error) {
-        boom.badRequest(error)
+function userValidation(schema = userSchema) {
+    return function (req, res, next) {
+        try {
+            const { error, value } = schema.validate(req.body);
+            if (error) {
+                next({
+                    output: {
+                        statusCode: 422,
+                        payload: error.details[0].message
+                    }
+                });
+            }
+            next()
+        } catch (error) {
+            next(error)
+        }
     }
 }
 
-module.exports = {
-    userValidation
-}
+module.exports = userValidation
