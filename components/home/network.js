@@ -8,8 +8,12 @@ router.get('/', async (req, res, next) => {
   try {
     let sales = await controller.sale();
     let newProducts = await controller.sale();
-
-    res.render("home", {sales: sales.rows, newProducts: newProducts.rows})
+   
+    res.render("home", {
+      user: req.cookies.name,
+      sales: sales.rows,
+      newProducts: newProducts.rows
+    })
   } catch (error) {
     next(boom.badImplementation(error))
   };

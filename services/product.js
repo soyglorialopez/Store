@@ -68,6 +68,14 @@ class Products {
         }
         return await this.db.get(query)
     }
+
+    async getAllProducts() {
+        const query = {
+            text: `SELECT * FROM products`,
+        }
+        return await this.db.get(query)
+    }
+    
 }
 
 

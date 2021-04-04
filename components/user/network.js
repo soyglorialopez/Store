@@ -5,6 +5,7 @@ const boom = require('@hapi/boom');
 const userValidation = require('../../utils/middleware/validationSchema');
 const service = require('../../services/user');
 const userService = new service();
+const cookieParser = require('cookie-parser');
 
 router.get('/signIn', async (req, res, next) => {
   try {
@@ -20,6 +21,12 @@ router.get('/signUp', async (req, res, next) => {
   } catch (error) {
     next(boom.badImplementation('Internal Error'));
   };
+});
+
+router.get('/logOut', async (req, res, next) => {
+  res
+    .clearCookie('name')
+    .redirect('/home');
 });
 
 router.post('/signUp', userValidation(), async (req, res, next) => {

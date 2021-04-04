@@ -28,9 +28,8 @@ function responseToError(err, req, res, next) {
             stack: err.stack
         }); 
     };
-
   res.render('error',
-    { message: payload, statusCode: statusCode });
+    { message: payload.message, statusCode: statusCode });
     };
    
 

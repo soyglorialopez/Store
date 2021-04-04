@@ -20,11 +20,16 @@ const jwt = {
     key : process.env.AUTH_SECRET_KEY
 }
 
+const cookie = {
+    secret: process.env.COOKIE_SECRET
+
+}
 
 
 module.exports = {
     site,
     Pg,
-    jwt
+    jwt,
+    cookie
 
 }

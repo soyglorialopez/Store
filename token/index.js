@@ -1,5 +1,6 @@
+'use strict'
 const jwt = require('jsonwebtoken');
-const config = require('../config');
+const config = require('../config/index');
 
 function sing(data){
  return   jwt.sign(data, config.jwt.key)
@@ -16,6 +17,7 @@ const check = {
         }
     }
 }
+
 function getToken(req){
     const authorization = req.headers.authorization || '';
    let token = authorization.replace('Bearer ','');
@@ -24,6 +26,7 @@ function getToken(req){
 
     return decoded
 }
+
 module.exports = {
     sing,
     check

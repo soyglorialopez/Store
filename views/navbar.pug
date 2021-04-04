@@ -1,23 +1,25 @@
 nav.navbar.is-info
   .container
     .navbar-brand
-      a.navbar-item
+      a(href='/home').navbar-item
         strong SHOP
       .navbar-item
-        button.button.is-primary.is-light View all products
+         a(href='/products/all').button.button.is-primary.is-light View all products
     .navbar-menu
       .navbar-end
-         if user
-            .navbar-item  
-              p #{user}
-         else 
-          .navbar-item
-            .buttons
-              a.button.is-primary
-                strong 
-                  Sign up
-               a.button.is-light Log in
-        a.navbar-item
-          a(href='')
-            span.icon.is-large
-              i.fas.fa-shopping-cart.fa-2x
+        .navbar-item 
+           if user 
+            .navbar-item
+             .buttons
+                a(href='/user/logOut').button.is-light
+                  strong Log Out
+            p #{user}
+           else 
+              .buttons
+                a(href='/user/signUp').button.is-primary
+                  strong Sign up
+                a(href='/user/signIn').button.is-light Log in
+        .navbar-item
+             a(href='')
+               span.icon.is-large
+                 i.fas.fa-shopping-cart.fa-2x

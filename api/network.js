@@ -52,6 +52,18 @@ router.get('/product/last/:quantity', async (req, res) => {
     }
 });
 
+router.get('/product/all', async (req, res) => {
+    let result
+    try {
+        result = await productServices.getAllProducts();
+        res.status(200).json({
+            'results': result['rows']
+        })
+    } catch (error) {
+        next(boom.badImplementation(error));
+    }
+});
+
 
 
 

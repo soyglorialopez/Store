@@ -1,16 +1,14 @@
 extends layout
 block content
-  each product 
     .container(style="flex: 1; padding: 50px 0;")
-         h1.title.is-3 #{name}
-        .columns.is-multiline
-            each product in #{name}
-               h1.title.is-3 Sales
+         h1.title.is-3 All Products 
+         .columns.is-multiline
+            each product in products
                 .column.is-one-quarter
                     .card
                         .card-image
                             figure.image(style="height: 190px")
-                                img(src=product.image style="height: 100%; object-fit: cover")
+                                img(src=product.img style="height: 100%; object-fit: cover")
                         .card-content
                             h1.title= product.name
                             .button.is-fullwidth.is-primary

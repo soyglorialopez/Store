@@ -25,7 +25,10 @@ function userValidation(schema = userSchema) {
                 next({
                     output: {
                         statusCode: 422,
-                        payload: error.details[0].message
+                        payload: {
+                            error: error.details,
+                            message: error.details[0].message
+                        }
                     }
                 });
             }

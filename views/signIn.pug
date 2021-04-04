@@ -3,17 +3,17 @@ block content
   .section.is-medium(style='height: 638px;')
     div(style='text-align: center;')
       p.subtitle.is-3  Sign In
-    form(action='' method='post')
+    form(action='/auth/signIn' method='post')
       .field
         label.label Email
         p.control.has-icons-left
-          input.input(type='email' placeholder='Email input' value='hello@')
+          input.input(type='email' name= "email" id= "email" placeholder='Email input' value='hello@')
           span.icon.is-small.is-left
             i.fas.fa-envelope
       .field
         label.label Password
         p.control.has-icons-left
-          input.input(type='password' placeholder='Password')
+          input.input(type='password'  name= "password" id= "password" placeholder='Password')
           span.icon.is-small.is-left
             i.fas.fa-lock
       .control.mt-5(style='text-align: center;')
@@ -21,4 +21,4 @@ block content
         div
           p
             | No account? 
-            a(href='') Sing Up
+            a(href='/user/signUp') Sing Up
