@@ -4,7 +4,7 @@ const productServices = new services();
 
 module.exports =  {
         sale: async () => await productServices.getProducts({ product: ['sale'] }),
-        newProducts: async () =>  await productServices.getLastProducts()
+        newProducts: async () =>  await productServices.getLastProducts(4)
 }
 
 

@@ -2,7 +2,6 @@
 const services = require('../services/user');
 const userServices = new services();
 const bcrypt = require('bcrypt');
-const token = require('../token/index');
 
 class Auth {
     constructor() {}
@@ -13,7 +12,6 @@ class Auth {
         if (passwordComparison) {
             return {
                 name: user[0].name,
-               toke: token.sing(passwordComparison)
             }
         }
         throw new Error("Unauthorized, wrong password or email.")

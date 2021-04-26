@@ -7,7 +7,7 @@ const controller = require('./controller');
 router.get('/', async (req, res, next) => {
   try {
     let sales = await controller.sale();
-    let newProducts = await controller.sale();
+    let newProducts = await controller.newProducts();
    
     res.render("home", {
       user: req.cookies.name,

@@ -10,8 +10,8 @@ block content
                             figure.image(style="height: 190px")
                                 img(src=product.img style="height: 100%; object-fit: cover")
                         .card-content
-                            h1.title= product.name
-                            .button.is-fullwidth.is-primary
+                            h4.title= product.name
+                            div(id = product.id).button.is-fullwidth.is-primary
                                 span.icon
                                     i.fas.fa-shopping-cart
                                 span Add Cart

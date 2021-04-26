@@ -1,18 +1,31 @@
 extends layout
-block content
+block content  
   .container.is-max-desktop.mt-5
-    div(style='text-align: center;')
-      p.subtitle.is-3  Products added to cart
-    hr
-    each product in cart
-     .alert.alert-dismissible.fade.show(style=' text-align: center; ' role='alert')
-      .row.is-flex.justify-content-center
-        .col-3
-          img(src= product.img style='width: 100px;' alt='')
-        .col-3
-          p= product.name
-          p= product.price
-        .col-2
-          button.close(type='button' data-dismiss='alert' aria-label='Close')
-            span(aria-hidden='true') &times;
-     hr
+     div(style='text-align: center;')
+       p.subtitle.is-3  Products added to cart
+     div#items
+     template#template-cart 
+         hr
+         .alert.alert-dismissible.fade.show(style=' text-align: center; '    role='alert')
+             .row.is-flex.justify-content-center
+                 .col-3
+                     img.image(src  style='width: 100px;' alt='aa')
+                 .col-3
+                     h2
+                     p.price
+                     span
+                 .col-2
+                  button.close(type='button' data-dismiss='alert' aria-label='Close')
+                     span(aria-hidden='true') &times;
+         hr
+     div.m-5(style='text-align: center;')
+        button.btn.btn-primary.btn-lg To Pay
+
+  
+ 
+block scripts
+  script( src='/static/shoppingCart.js' )
+  
+
+
+

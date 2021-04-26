@@ -1,47 +1,62 @@
-### Backend Store
+### Store
+![](./screenshot.jpg)
 
-_Backend de una tienda sencilla, podras crearte una cuenta, loguearte, comprar productos._  <br>
-_Listar productos, ver cuales son las ofertas_ <br>
-_En la Api utilizamos JWT, para cuando un usuario se loguea se le manda un token y cuando quiera comprar algo comprobamos_ <br>
-_que venga ese token de lo contrario se negara la accion_ <br>
+_Una e-commnerce sencilla, en la cual podras crearte una cuenta, loguearte, comprar productos._  <br>
+_Listar productos, ver cuales son las ofertas_ <br> 
 
 
-### Como esta creado el Programa 🔧
-Para la creacion de esta Api, se utilizo como lenguaje principal JavaScript, el codigo <br>
-es ejecutado en Node. <br>
-Creamos un microServicio que es la Base De Datos, nos comunicamos con ella y a la vez ella con el Motor de Base de Datos MySQL. <br>
+### Cómo esta creado el Programa 🔧
+Para la creación de esta página, se utilizó como lenguaje principal JavaScript, tanto para el backend <br>
+como para el frontend <br>
+
+<br>
 
  * <strong> Dependecias</strong> <br>
-   * "axios": para hacer peticiones al microservicio DB <br>
-   *  "bcrypt": para encriptar y desencriptar las contraseñas <br>
    * "express":  Framework principal  <br>
-   * "jsonwebtoken": Para la utilizacion de tokens <br>
-    * "mysql": para hacer una coneccion con la Base de Datos Remota <br>
+   * "pg": Para hacer una conección con la Base de Datos de Postgres<br>
+   * "bcrypt": Para encriptar y desencriptar las contraseñas <br>
+   * "pug": Para la creción de las vistas<br>
+   * "Boostrap": Para los componentes que necesiten js<br>
+   * "Bulma": Para darle estilos a la páginas con css<br>
+
 
 ### Pre-requisitos 📋
 
-* Tener instalado Node <br>
-* Haberse creado una cuenta  y una base de datos en https://remotemysql.com/ (esto es modo de prueba) <br>
-    _si ya cuentas con el motor de bases de Datos puedes conectarte directament con el y crear una DB_ 
+* Tener instalado Node y Postgres<br>
+
     
 
 ## Guia 🚀
 
 _Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
 
-* Clonar el proyecto ``` git clone https://github.com/soyglorialopez/Backend-Store.git ```
+* Clonar el proyecto ``` git clone https://github.com/soyglorialopez/Store.git```
 * Instalar las dependecias ``` npm init ```
-* Completar los datos del objeto mysql que esta ubicado en el archivo config.js
+* Crearse una Base de Datos en postgres.
+* Crear con la tabla de user con los campos de <br>
+    "id", int<br>
+     "name"  string<br>
+     "email" string<br>
+      "password" string<br>
+* Crear con las tablas products con los campos de:  <br>
+   "id", int<br>
+     "name"  string<br>
+     "price" t<br>
+      "description" float<br> 
+    "tags"  array<br>
+     "stock" int<br>
+      "img" string<br> 
+* Al archivo env.text cambairle el nombre por .env y completar con los datos<br>
+
+
 
 
 
 ## Despliegue 📦
 
-Utilizaremos pm2 para correr el proyecto porque son varios procesos a la vez <br>
-
 ```
-pm2 start api/index.js --name api
+npm run start 
 ```
 ```
-pm2 start DB/index.js --name DB
+npm run dev:debug
 ```
